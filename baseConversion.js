@@ -1,4 +1,4 @@
-let Alphabet = {
+const Alphabet = {
   BINARY:        '01',
   OCTAL:         '01234567',
   DECIMAL:       '0123456789',
@@ -10,12 +10,12 @@ let Alphabet = {
 };
 
 function toDec(value, format) {
-  let formatLength = format.length;
+  const formatLength = format.length;
   let result = 0;
 
   for (let i = 0; i < value.length; i++) {
-    let decValue = format.indexOf(value[i]);
-    let charIndexFromRight = value.length - 1 - i;
+    const decValue = format.indexOf(value[i]);
+    const charIndexFromRight = value.length - 1 - i;
 
     result += decValue * (formatLength ** charIndexFromRight);
   };
@@ -24,10 +24,9 @@ function toDec(value, format) {
 };
 
 function fromDec(value, format) {
+  const  formatLength = format.length;
   let num = Number(value);
-  let  formatLength = format.length;
   let result = '';
-
 
   do {
     result = format.charAt(num % formatLength) + result;
